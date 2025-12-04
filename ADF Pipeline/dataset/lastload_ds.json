@@ -1,0 +1,27 @@
+{
+	"name": "lastload_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "LastLoad.json",
+				"folderPath": "configjsonfiles/LastLoad",
+				"fileSystem": "creditcheck"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"lastload": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
