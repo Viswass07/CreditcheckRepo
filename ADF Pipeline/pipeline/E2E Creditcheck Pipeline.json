@@ -1,0 +1,54 @@
+{
+	"name": "E2E Creditcheck Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Ingestion Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "SQL Server to Bronze",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Silver Transformation",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Ingestion Pipeline",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Bronze to Silver",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"variables": {
+			"Latest Load": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-12-04T15:36:49Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

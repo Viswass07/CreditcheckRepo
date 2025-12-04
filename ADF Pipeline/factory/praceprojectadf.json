@@ -1,0 +1,9 @@
+{
+	"name": "praceprojectadf",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dccd8af6-fe77-4836-bcb1-e524474b4bd6",
+		"tenantId": "a6da921b-8f29-4c64-925e-ed93ea712e8f"
+	}
+}
