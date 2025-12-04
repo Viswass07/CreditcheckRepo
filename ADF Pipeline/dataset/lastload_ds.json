@@ -1,5 +1,5 @@
 {
-	"name": "watermarkjson",
+	"name": "lastload_ds",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage2",
@@ -10,12 +10,18 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "WatermakConfig.json",
-				"folderPath": "configjsonfiles",
+				"fileName": "LastLoad.json",
+				"folderPath": "configjsonfiles/LastLoad",
 				"fileSystem": "creditcheck"
 			}
 		},
-		"schema": {}
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+		"schema": {
+			"type": "object",
+			"properties": {
+				"lastload": {
+					"type": "string"
+				}
+			}
+		}
+	}
 }

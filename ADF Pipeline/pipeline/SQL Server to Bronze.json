@@ -134,7 +134,7 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "Json2",
+						"referenceName": "lastload_ds",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false

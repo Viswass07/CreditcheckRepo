@@ -1,0 +1,121 @@
+{
+	"name": "wateramarkupdate_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "request_datetime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "request_channel",
+				"type": "varchar"
+			},
+			{
+				"name": "creditcheckid",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "customer_id",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_name",
+				"type": "varchar"
+			},
+			{
+				"name": "phone_number",
+				"type": "varchar"
+			},
+			{
+				"name": "email",
+				"type": "varchar"
+			},
+			{
+				"name": "dob",
+				"type": "date"
+			},
+			{
+				"name": "government_id",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_address",
+				"type": "varchar"
+			},
+			{
+				"name": "customer_region_code",
+				"type": "varchar"
+			},
+			{
+				"name": "device_code",
+				"type": "varchar"
+			},
+			{
+				"name": "device_name",
+				"type": "varchar"
+			},
+			{
+				"name": "brand",
+				"type": "varchar"
+			},
+			{
+				"name": "device_price",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "plan_code",
+				"type": "varchar"
+			},
+			{
+				"name": "plan_name",
+				"type": "varchar"
+			},
+			{
+				"name": "monthly_fee",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "contract_months",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "approval_amount",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "decision_status",
+				"type": "varchar"
+			},
+			{
+				"name": "rejection_reason",
+				"type": "varchar"
+			},
+			{
+				"name": "last_updated_ts",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "fact_credit_check"
+		}
+	}
+}
