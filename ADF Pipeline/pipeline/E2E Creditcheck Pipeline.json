@@ -19,7 +19,7 @@
 				}
 			},
 			{
-				"name": "Silver Transformation",
+				"name": "Transformation Pipeline",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
@@ -35,18 +35,18 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "Bronze to Silver",
+						"referenceName": "Bronze to Silver to Gold",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
 				}
 			},
 			{
-				"name": "Execute Pipeline1",
+				"name": "Watermark Pipeline",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "Silver Transformation",
+						"activity": "Transformation Pipeline",
 						"dependencyConditions": [
 							"Succeeded"
 						]
