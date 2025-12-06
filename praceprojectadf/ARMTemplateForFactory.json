@@ -45,7 +45,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/Bronze to Silver')]",
+			"name": "[concat(parameters('factoryName'), '/Bronze to Silver to Gold')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -258,7 +258,7 @@
 						}
 					},
 					{
-						"name": "Silver Transformation",
+						"name": "Transformation Pipeline",
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
@@ -274,7 +274,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
-								"referenceName": "Bronze to Silver",
+								"referenceName": "Bronze to Silver to Gold",
 								"type": "PipelineReference"
 							},
 							"waitOnCompletion": true,
@@ -282,11 +282,11 @@
 						}
 					},
 					{
-						"name": "Execute Pipeline1",
+						"name": "Watermark Pipeline",
 						"type": "ExecutePipeline",
 						"dependsOn": [
 							{
-								"activity": "Silver Transformation",
+								"activity": "Transformation Pipeline",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -319,7 +319,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/SQL Server to Bronze')]",
-				"[concat(variables('factoryId'), '/pipelines/Bronze to Silver')]",
+				"[concat(variables('factoryId'), '/pipelines/Bronze to Silver to Gold')]",
 				"[concat(variables('factoryId'), '/pipelines/Update Watermark')]"
 			]
 		},
